@@ -1,0 +1,20 @@
+1. The system shall allow the Dr. to login by id and password
+2. The system shall allow the Dr. to search for patient by id
+3. The system shall allow the Dr. to edit patient history
+4. The system shall allow the Dr. to add diagnos to the patient
+5. The system shall allow the Dr. to dispaly the archive of the patients
+6. The system shall allow the Dr. to print reports 
+7. The system shall allow the Dr. to print sickleave
+
+
+History -- > Past, Present, Medical, Familly
+
+- if the patient came to the Dr. for some illness or injury
+   the dr. will add diagnos then will add the // or //  to the present history
+	if the patient came agin then the 1st digons will be concedered as past
+
+
+Design Interface :
+	1- display menu : done
+	2- name of the user : done
+
