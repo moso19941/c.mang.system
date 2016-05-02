@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	  <script type="text/javascript" src="script.js"></script>
-	  <title>Homepage</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<script type="text/javascript" src="js/script.js"></script>
+<title>Clinic Management System</title>
+
 </head>
 <body>
+	<div class="container-fluid">
 
-<div class="container-fluid">
-
-	<div class="row" id="topPage">
-		<div class="col-md-2">
-			<h4>Clinic management System</h4>
+		<div Class="row" id="Header">
+			<div class="col-md-3">
+				<h4>Clinic Management System</h4>
+			</div>
+			<div class="col-md-7"></div>
+			<div class="col-md-2">
+				<h4 id="NameDr">Dr.Islam</h4>
+			</div>
 		</div>
-		<div class="col-md-8"></div>
-		<div class="col-md-2">
-			<h4>Dr.Islam</h4>
+
+
+		<div Class="row" id="navBar">
+			<div class="col-md-12">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html"><img alt="psuLogo"
+						src="img/logo.png" class="logoimg"></a>
+				</div>
+				<ul class="nav navbar-nav" id="navBarElements">
+					<li><a href="index.html">HomePage</a></li>
+					<li><a href="#" onclick="changePage('generateReport')">Generate
+							Medical Report</a></li>
+					<li><a href="#" onclick="changePage('generateSickleave')">Generate
+							Medical Sick-leave</a></li>
+					<li><a href="#" onclick="changePage('editPatientHistory')">Edit patient History</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="row" id="ChangePage">
+			<br> <br>
+			<div class="container-fluid">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<h4>Enter the ID of the patient</h4>
+
+					<input type="text" class="form-control" name="idPatient"
+						id="idPatient" placeholder="Enter the ID here"> <input
+						type="submit" name="searchID" id="searchID"
+						onclick="makeCallPage('homepage')" class="btn btn-primary"
+						value="Search">
+
+				</div>
+				<div class="col-md-4"></div>
+
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row" id="result"></div>
 		</div>
 	</div>
 
-		<div class="row" id="menu">
-		<div class="col-md-1" id="menuRight">
-<br>
-			<nav class="navbar navbar-inverse pull-right" id="RightMenuNav">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="#">Control</a>
-			    </div>
-			    <ul class="nav navbar-nav">
-			      <li ><a href="#" onclick="makeCallPage('homepage')">Home</a></li>
-			      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Report<span class="caret"></span></a>
-			        <ul class="dropdown-menu">
-			          <li><a href="#" onclick="makeCallPage('reports')">Offical Report</a></li>
-			          <li><a href="#">Sickleave</a></li>
-			        </ul>
-			      </li>
-			      <li><a href="#">Archive</a></li>
-			    </ul>
-			  </div>
-			</nav>
 
-			
-
-		</div>
-		<div class="col-md-10" id="result">
-			<!-- Here we will display the Content of the menu abo -->
-			<h1>Welecome Dr.Islam</h1>
-		</div>
-	</div>
-
-
-</div>
-		<script>
-		$(document).ready(function(){
-		    $('[data-toggle="popover"]').popover();   
-		});
-		</script>
 </body>
 </html>

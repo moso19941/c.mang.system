@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+#Header {
+	background-color: black;
+	color: white;
+}
+
+#navBar {
+	background-color: lightblue;
+}
+
+#navBarElements li a {
+	color: black;
+	border-style: groove;
+	border-width: 1px;
+	font-size : 20px;
+}
+
+.logoimg{
+	width : 120px;
+}
+
+#patientInfo{
+	border-style: solid;
+}
