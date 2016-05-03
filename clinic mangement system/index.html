@@ -39,9 +39,8 @@
 					<li><a href="index.html">HomePage</a></li>
 					<li><a href="#" onclick="changePage('generateReport')">Generate
 							Medical Report</a></li>
-					<li><a href="#" onclick="changePage('generateSickleave')">Generate
-							Medical Sick-leave</a></li>
-					<li><a href="#" onclick="changePage('editPatientHistory')">Edit patient History</a></li>
+					<li><a href="#" onclick="changePage('editPatientHistory')">
+							Patient Archive</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,25 +49,29 @@
 		<div class="row" id="ChangePage">
 			<br> <br>
 			<div class="container-fluid">
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-					<h4>Enter the ID of the patient</h4>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<h4>Enter the ID of the patient</h4>
 
-					<input type="text" class="form-control" name="idPatient"
-						id="idPatient" placeholder="Enter the ID here"> <input
-						type="submit" name="searchID" id="searchID"
-						onclick="makeCallPage('homepage')" class="btn btn-primary"
-						value="Search">
+						<input type="text" class="form-control" name="idPatient"
+							id="idPatient" placeholder="Enter the ID here"> <input
+							type="submit" name="searchID" id="searchID"
+							onclick="makeCallPage('homepage')" class="btn btn-primary"
+							value="Search">
 
+					</div>
+					<div class="col-md-4"></div>
+					<br>
 				</div>
-				<div class="col-md-4"></div>
+				<div class="container-fluid">
+					<div class="row" id="result"></div>
+				</div>
 
 			</div>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row" id="result"></div>
-		</div>
+
 	</div>
 
 

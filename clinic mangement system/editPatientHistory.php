@@ -58,7 +58,55 @@ if (empty ( $id )) {
 		$studentHistoryArray = array ();
 		$studentHistoryArray [0] = ''; // to make sure that there's value comes form the database
 		if (isset ( $sqlCheck )) {
-			echo "<h4> History Of the Patient</h4>";
+			
+			?>
+						<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-target="#myModal">Edit Medical History</button>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit History</h4>
+				</div>
+
+				<div class="modal-body">
+					<input type="hidden" id="PaID" value="<?php echo $id;?>">
+					<div>
+						<h3>Past</h3>
+						<textarea class="form-control" rows="5" id="pastHistory" class="form-control"></textarea>
+					</div>
+					<div>
+						<h3>Medical</h3>
+						<textarea class="form-control" rows="5" id="Medical" class="form-control"></textarea>
+					</div>
+					<div>
+						<h3>Family</h3>
+						<textarea class="form-control" rows="5" id="Family"></textarea>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+
+					<input type="button" name="addV" id="addVi" value="Save"
+						class="btn btn-default" onclick="addHistoryToDb()" data-dismiss="modal">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- 	 -->
+						<?php
+			
+			echo "<br><h4> History Of the Patient</h4>";
 			echo "<table class='table table-bordered table-hover' id='patientInfo'> <tr class='info'>";
 			echo "<td>Past History</td>";
 			echo "<td>Present History</td>";
@@ -81,7 +129,7 @@ if (empty ( $id )) {
 			}
 			echo "</table>";
 			
-			echo "<br>";
+			echo "<br> <h3>Visits</h3>";
 			
 			// display the visits of the patient
 			$sqlVisits = "SELECT `No`,`Complaint`, `Diagnosis`, `Comments` FROM `visits` WHERE `id` = $id";
@@ -108,58 +156,33 @@ if (empty ( $id )) {
 				$studentvisitsArray [3] = $row [2];
 				echo "<tr>";
 			}
-			
-			?>
-			<!-- Trigger the modal with a button -->
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal">Add</button>
-
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Add Visit</h4>
-				</div>
-
-				<div class="modal-body">
-		<input type="hidden" id="PaID" value="<?php echo $id;?>">
-					<div>
-						<h3>Complaint</h3>
-						<input type="text" id="comp" class="form-control">
-					</div>
-					<div>
-						<h3>Diagnosis</h3>
-						<input type="text" id="dia" class="form-control">
-					</div>
-					<div>
-						<h3>Comments</h3>
-						<textarea class="form-control" rows="5" id="comment"></textarea>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-
-					<input type="button" name="addV" id="addVi" value="Save"
-						class="btn btn-default" onclick="addViToDb()" data-dismiss="modal">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-<!-- 	 -->
-			<?php
-			
+		
+			echo "</tr> </table>";
+		echo "<br> <h3>Reports</h3>";	
+			//report
+			$sqlrs = "SELECT `id`, `comment`, `type` FROM `reports` WHERE `id` = $id";
+			$sqlCheckR = mysql_query ( $sqlrs );
+			echo "<table class='table table-bordered table-hover' id='patientInfo'> <tr class='danger'> ";
+			echo "<td>Comment</td>";
+			echo "<td>Type</td>";
+			echo "</tr>";
+			$studentReportArray = array ();
+			$studentReportArray [0] = '';
+				
+			while ( $row = mysql_fetch_row ( $sqlCheckR ) ) {
+				// check if the id not repeated more than one ****
+				echo "<tr>";
+				echo "<td> $row[1]</td>";
+				echo "<td>$row[2]</td>";
+				$studentReportArray [1] = $row [1];
+				$studentReportArray [2] = $row [2];
+				echo "<tr>";
+			}
+				
 			echo "</tr> </table>";
 			
-			if ($studentvisitsArray = '') {
-				echo "<h3>There's no vistis of the patient</h3>";
+			if ($studentReportArray = '') {
+				echo "<h3>There's no Reports of the patient</h3>";
 			}
 		} else {
 			echo "<h3>Error commentcating to database</h3>";

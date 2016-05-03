@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2016 at 01:39 AM
+-- Generation Time: May 03, 2016 at 11:33 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -41,7 +41,9 @@ CREATE TABLE `history` (
 INSERT INTO `history` (`past`, `present`, `medical`, `family`, `id`) VALUES
 ('Broke his leg ', 'pain in cheast', 'no medical recored', 'no family history', 123),
 ('', '', '', '', 212),
-('', 'low blood presure', '', '', 123);
+('', 'low blood presure', '', '', 123),
+('', 'sdafdsa', '', '', 123),
+('', '', '', 'his father has diabetes', 123);
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,27 @@ INSERT INTO `patient` (`id`, `fn`, `ln`, `age`, `type`, `phone`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `id` int(11) NOT NULL,
+  `comment` mediumtext NOT NULL,
+  `type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `comment`, `type`) VALUES
+(123, 'any thing test', 'report'),
+(123, 'dsafdsafdsafdsa', 'Sick Leave'),
+(123, 'sdafdsafdsafdsafds', 'Report');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `visits`
 --
 
@@ -88,7 +111,8 @@ INSERT INTO `visits` (`id`, `No`, `Complaint`, `Diagnosis`, `Comments`) VALUES
 (123, 1, 'headache', '', NULL),
 (123, 2, 'leg injury', 'Pulled hamstring', 'Rest 3 week at home'),
 (123, 5, 'dsfdsa', 'sdafdsa', 'sadfdsafdsafds'),
-(123, 6, 'feel dazy', 'low blood presure', 'Rest for one day');
+(123, 6, 'feel dazy', 'low blood presure', 'Rest for one day'),
+(123, 7, 'sadfsda', 'sdafdsa', 'sadfdsfs');
 
 --
 -- Indexes for dumped tables
@@ -108,7 +132,7 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

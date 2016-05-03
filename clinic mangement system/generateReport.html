@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h4>Enter the ID of the patient</h4>
+
+				<input type="text" class="form-control" name="idPatient"
+					id="idPatient" placeholder="Enter the ID here">
+					
+				<div class="form-group">
+					<label for="sel1">Select list:</label> <select class="form-control"
+						id="report">
+						<option>Report</option>
+						<option>Sick Leave</option>
+					</select>
+				</div>
+				
+				<div>
+					<h3>Comments</h3>
+					<textarea class="form-control" rows="10" id="Comments"
+						class="form-control"></textarea>
+				</div>
+
+				<br> <input type="submit" name="searchID" id="searchID"
+					onclick="makeCallReports('generateReport')" class="btn btn-primary"
+					value="Save">
+
+			</div>
+			<div class="col-md-4"></div>
+			<br>
+		</div>
+		<div class="container-fluid">
+			<div class="row" id="result"></div>
+		</div>
+
+	</div>
+
+</body>
+</html>

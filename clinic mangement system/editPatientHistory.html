@@ -2,11 +2,38 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<script type="text/javascript" src="js/script.js"></script>
+
 </head>
-<body>
+<body onload="process()">
+<div class="container-fluid"><h2>Patient Archive</h2></div>
+	<div class="row" id="ChangePage">
+		<br> <br>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<h4>Enter the ID of the patient</h4>
 
+					<input type="text" class="form-control" name="editIDPatient"
+						id="editIDPatient" placeholder="Enter the ID here">
+						
+						 <input type="submit" name="editIDPatientS" id="editIDPatientS"
+						onclick="makeCallPagePhp('editPatientHistory')" class="btn btn-primary"
+						value="Search">
 
+				</div>
+				<div class="col-md-4"></div>
+				<br>
+			</div>
+			<div class="container-fluid">
+				<div class="row" id="result"></div>
+			</div>
+
+		</div>
+	</div>
 
 
 </body>

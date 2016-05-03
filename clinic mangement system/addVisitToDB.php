@@ -1,9 +1,10 @@
 <?php
 include 'dbconfig.php';
-$id = $_GET ['id'];
-$comp = $_GET ['comp'];
-$dia = $_GET ['dia'];
-$comm = $_GET ['comm'];
+$id = $_REQUEST ['id'];
+$comp = $_REQUEST ['comp'];
+$dia = $_REQUEST ['dia'];
+$comm = $_REQUEST ['comm'];
+
 
 // echo $id . "<br>";
 // echo $comp . "<br>";
@@ -27,6 +28,11 @@ if ($id != '') {
 	} else {
 		echo "<br>Can't add to db<br>";
 	}
+}else {
+	echo "error in addvitit";
 }
+
+
+
 
 ?>
